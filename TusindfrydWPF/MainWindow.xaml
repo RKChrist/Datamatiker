@@ -1,0 +1,22 @@
+﻿<Window x:Class="TusindfrydWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TusindfrydWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="538" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="779*"/>
+            <ColumnDefinition Width="22*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="FlowersortsLabel" Content="Blomstersorter" HorizontalAlignment="Left" Margin="56,45,0,0" VerticalAlignment="Top" Height="52" Width="685" FontSize="24"/>
+        <TextBlock x:Name="SortContainer" HorizontalAlignment="Left" Margin="56,124,0,0" Text="Ingen blomstersorter tilføjet..." TextWrapping="Wrap" VerticalAlignment="Top" Height="247" Width="685" Background="WhiteSmoke" Padding="10,10,10,10"/>
+        <Button x:Name="CreateFlower" Content="Opret Blomstersort" HorizontalAlignment="Left" Margin="59,416,0,0" VerticalAlignment="Top" Height="48" Width="180" Click="CreateFlower_Click"/>
+        <Button x:Name="EditFlower" Content="Rediger Blomstersort" IsEnabled="True" HorizontalAlignment="Left" Margin="303,416,0,0" VerticalAlignment="Top" Height="48" Width="180" Click="EditFlower_Click"/>
+        <Button x:Name="DeleteFlower" Content="Slet Blomstersort" IsEnabled="False" HorizontalAlignment="Left" Margin="557,416,0,0" VerticalAlignment="Top" Height="48" Width="180" Click="DeleteFlower_Click"/>
+        <ListBox Grid.Column="1"/>
+
+    </Grid>
+</Window>

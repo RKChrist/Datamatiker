@@ -1,0 +1,45 @@
+﻿<Window x:Class="TusindfrydWPFMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TusindfrydWPFMVVM"
+        mc:Ignorable="d"
+        Title="Tusindfryd" Height="450" Width="800">
+    <Grid Margin="20">
+        <!-- Define shit -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <Label Content="Blomster Håndtering" FontSize="24" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        
+        <!-- ListBox containing flowers -->
+        <ListBox  ItemsSource="{Binding FlowersVM}" SelectedItem="{Binding SelectedFlower}" x:Name="FlowerListBox" Grid.Row="1" Grid.Column="1" Background="#f9f9f9">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1" Grid.Column="3" >
+            <Button Name="CreateFlower" Content="Opret Blomst" Margin="0 10" Padding="10 5" Click="CreateFlower_Click" />
+            <Button Name="EditFlower" Content="Rediger Blomst" Margin="0 10" Padding="10 5" Click="EditFlower_Click" />
+            <Button Name="DeleteFlower" Content="Slet Blomst" Margin="0 10" Padding="10 5" Click="DeleteFlower_Click"  IsEnabled="False"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

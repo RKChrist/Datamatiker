@@ -1,0 +1,3 @@
+﻿This is a text file.
+Being a text file, means it's a file, and it contains text.
+It's a boring file.
