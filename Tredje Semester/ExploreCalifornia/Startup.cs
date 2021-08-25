@@ -22,10 +22,12 @@ namespace ExploreCalifornia
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<FeatureToggles>(x => new FeatureToggles
+            services.AddTransient(x => new FeatureToggles
             {
                 DeveloperExtensions = configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions")
             });
+            //To configure mvc, we use this method, which adds mvc services to the IServiceCollection
+            services.AddMvc();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, 
@@ -55,6 +57,13 @@ namespace ExploreCalifornia
                 await next();
                 
             });
+
+            //Adds MVC methods to the IApplicationBuilder request execution pipeline, which builds the application using the MVC pattern.
+            app.UseMvc(routes => 
+            {
+                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            });
+
 
             app.UseFileServer();
 
