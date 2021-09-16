@@ -43,18 +43,18 @@ namespace ExploreCalifornia
             else
             {
                 app.UseExceptionHandler("/error.html");
-                app.UseHsts();
+                
             }
 
 
-            ////creating error (The basics (Error handling and diagnostics)
+            //creating error (The basics (Error handling and diagnostics)
             app.Use(async (context, next) =>
             {
                 if (context.Request.Path.Value.Contains("invalid"))
                 {
                     throw new ArgumentException("ERROR");
                 }
-                await next();
+                await next();   
                 
             });
 
